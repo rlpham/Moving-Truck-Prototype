@@ -9,119 +9,135 @@
     <link rel="stylesheet" href="styles.css">
     <div class="container-fluid">
         <div class="row">
+	<!--
             <div class="col-sm-3 px-1 bg-dark">
                 <div class="py-2 sticky-top flex-grow-1">
                     <div class="nav flex-sm-column">
-                        <a href="https://harrisburg.psu.edu/sites/harrisburg/files/styles/person_headshot/public/SukmoonChang.jpg?itok=oSwEgi1" class="nav-link side-item">
-                          <img src="assets/kenny.jpg" width="75%" height="75%">
-                        </a>
                         <a href="index.html" class="nav-link side-item">Active</a>
                         <a href="idle.html" class="nav-link side-item">Inactive</a>
-                        <a href="new_customer_form.html" class="nav-link side-item">New Customer</a>
                     </div>
                 </div>
             </div>
+-->
             <div class="col" id="main">
-                <h1>Active Trucks</h1>
-                <table class="table table-dark">
+                <h1>Active Shipments</h1>
+		<div class="buttons">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addShipmentModal">Add Shipment</button>
+			<button type="button" class="btn btn-info" onclick="refresh()">Refresh</button>
+		</div>
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <table id="table" class="table table-dark">
                   <thead>
                     <tr>
-                      <th scope="col">Serial #</th>
+                      <th scope="col">Shipment ID</th>
+                      <th scope="col">Date</th>
                       <th scope="col">From</th>
                       <th scope="col">To</th>
                       <th scope="col">Weight</th>
                       <th scope="col">Type</th>
                       <th scope="col">Status</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">j62Gxxn3</th>
+                      <td>11/6/2019</td>
                       <td>Philadelphia, PA</td>
                       <td>Harrisburg, PA</td>
                       <td>TBD</td>
                       <td>Home</td>
-                      <td>Loading Freight</td>
+                      <td class="status">Loading Freight</td>
                     </tr>
                     <tr>
                       <th scope="row">xZC2Z8hL</th>
+                      <td>11/6/2019</td>
                       <td>State College, PA</td>
                       <td>Columbus, OH</td>
                       <td>6,056 lbs.</td>
                       <td>Home</td>
-                      <td>In Transit</td>
+                      <td class="status">In Transit</td>
                     </tr>
                     <tr>
                       <th scope="row">n2Nj6tCj</th>
+                      <td>11/6/2019</td>
                       <td>Las Vegas, NV</td>
                       <td>Los Angeles, CA</td>
                       <td>9,483 lbs.</td>
                       <td>Home</td>
-                      <td>In Transit</td>
+                      <td class="status">In Transit</td>
                     </tr>
                     <tr>
                       <th scope="row">mkcDgp9g</th>
+                      <td>11/6/2019</td>
                       <td>Louisville, KY</td>
                       <td>Nashville, TN</td>
                       <td>8,112 lbs.</td>
                       <td>Home</td>
-                      <td>Unloading Freight</td>
+                      <td class="status">Unloading Freight</td>
                     </tr>
                     <tr>
                       <th scope="row">36gVFRPE</th>
+                      <td>11/6/2019</td>
                       <td>Boston, MA</td>
                       <td>Salem, MA</td>
                       <td>TBD</td>
                       <td>Business</td>
-                      <td>Loading Freight</td>
+                      <td class="status">Loading Freight</td>
                     </tr>
                     <tr>
                       <th scope="row">W2WUs9bX</th>
+                      <td>11/6/2019</td>
                       <td>Seattle, WA</td>
                       <td>Sacramento, CA</td>
                       <td>10,684 lbs.</td>
                       <td>Home</td>
-                      <td>In Transit</td>
+                      <td class="status">Delayed</td>
                     </tr>
                     <tr>
                       <th scope="row">y7usomxm</th>
+                      <td>11/6/2019</td>
                       <td>Houston, TX</td>
                       <td>Dallas, TX</td>
                       <td>TBD</td>
                       <td>Home</td>
-                      <td>Loading Freight</td>
+                      <td class="status">Loading Freight</td>
                     </tr>
                     <tr>
                       <th scope="row">9XtqYTmd</th>
+                      <td>11/6/2019</td>
                       <td>Miami, FL</td>
                       <td>Orlando, FL</td>
                       <td>12,608 lbs.</td>
                       <td>Home</td>
-                      <td>In Transit</td>
+                      <td class="status">In Transit</td>
                     </tr>
                     <tr>
                       <th scope="row">e3WRbxQo</th>
+                      <td>11/6/2019</td>
                       <td>Salt Lake City, UT</td>
                       <td>San Antonio, TX</td>
-                      <td>5.530 lbs.</td>
+                      <td>5,530 lbs.</td>
                       <td>Home</td>
-                      <td>In Transit</td>
+                      <td class="status">In Transit</td>
                     </tr>
                     <tr>
                       <th scope="row">oAmFibLy</th>
+                      <td>11/6/2019</td>
                       <td>Des Moines, IW</td>
                       <td>Iowa City, IW</td>
                       <td>18,871 lbs.</td>
                       <td>Business</td>
-                      <td>In Transit</td>
+                      <td class="status">Delayed</td>
                     </tr>
                     <tr>
                       <th scope="row">5wHZUyic</th>
+                      <td>11/6/2019</td>
                       <td>Raleigh, NC</td>
                       <td>Greenville, NC</td>
                       <td>11,840 lbs.</td>
                       <td>Home</td>
-                      <td>In Transit</td>
+                      <td class="status">In Transit</td>
                     </tr>
                   </tbody>
                 </table>
@@ -129,8 +145,85 @@
         </div>
     </div>
 
+<!-- Modal -->
+<div class="modal fade" id="addShipmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Shipment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-" action="/action_page.php" id="newModalForm">
+	        <label for="name"><strong>Name</strong></label>
+	    <div class="form-group">
+	        <input type="text" class="form-control" id="name" required="true">
+	    </div>
+          <label for="name"><strong>Email</strong></label>
+          <div class="form-group">
+            <input type="text" class="form-control" id="email" required="true">
+          </div>
+	    <div class="form-group">
+	        <label for="from"><strong>From/To</strong></label>
+	        <input type="text" class="form-control" id="from" required="true">
+		  <input type="text" class="form-control" id="to" required="true">
+	    </div>
+	    <div class="form-group" id="type">
+		<label for="type"><strong>Type</strong></label>
+		<br>
+
+
+		<div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="typeOptions" id="home" value="home">
+            <label class="form-check-label">Home</label>
+	    	</div>
+	    	<div class="form-check form-check-inline">
+		 	<input class="form-check-input" type="radio" name="typeOptions" id="business" value="business">
+		 	<label class="form-check-label">Business</label>
+	    	</div>
+	    </div>
+
+          <div class="form-group" id="truckType">
+            <label for="type"><strong>Truck Size</strong></label>
+            <br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="typeOptions" id="size1" value="home">
+            <label class="form-check-label">Small Truck</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="typeOptions" id="size2" value="business">
+            <label class="form-check-label">Medium Truck</label>
+          </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="typeOptions" id="size3" value="business">
+              <label class="form-check-label">Large Truck</label>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"><strong>Special Requirements</strong></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+           </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal" onclick="clear()">Cancel</button>
+        <button type="submit" class="btn btn-success" data-dismiss="modal" onclick="add()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
+    <script src="./refresh.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
 
