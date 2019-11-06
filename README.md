@@ -5,6 +5,7 @@ Group 3 Implementation of a Moving Truck company.
 ## Technology Stack
 - ElectronJS [Info](http://www.electronjs.org/)
 - Bootstrap 4 (I think, if not then it's 3). 
+- JQuery
 
 ## Installation
 
