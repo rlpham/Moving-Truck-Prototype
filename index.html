@@ -9,27 +9,19 @@
     <link rel="stylesheet" href="styles.css">
     <div class="container-fluid">
         <div class="row">
-	<!--
-            <div class="col-sm-3 px-1 bg-dark">
-                <div class="py-2 sticky-top flex-grow-1">
-                    <div class="nav flex-sm-column">
-                        <a href="index.html" class="nav-link side-item">Active</a>
-                        <a href="idle.html" class="nav-link side-item">Inactive</a>
-                    </div>
-                </div>
-            </div>
--->
             <div class="col" id="main">
                 <h1>Active Shipments</h1>
 		<div class="buttons">
 			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addShipmentModal">Add Shipment</button>
 			<button type="button" class="btn btn-info" onclick="refresh()">Refresh</button>
 		</div>
+              <div id="search">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              </div>
                 <table id="table" class="table table-dark">
                   <thead>
                     <tr>
-                      <th scope="col">Shipment ID</th>
+                      <th scope="col" onclick="sortTable(0)">Shipment ID</th>
                       <th scope="col">Date</th>
                       <th scope="col">From</th>
                       <th scope="col">To</th>
@@ -48,6 +40,9 @@
                       <td>TBD</td>
                       <td>Home</td>
                       <td class="status">Loading Freight</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">xZC2Z8hL</th>
@@ -57,6 +52,9 @@
                       <td>6,056 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">n2Nj6tCj</th>
@@ -66,6 +64,9 @@
                       <td>9,483 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">mkcDgp9g</th>
@@ -75,6 +76,9 @@
                       <td>8,112 lbs.</td>
                       <td>Home</td>
                       <td class="status">Unloading Freight</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">36gVFRPE</th>
@@ -84,6 +88,9 @@
                       <td>TBD</td>
                       <td>Business</td>
                       <td class="status">Loading Freight</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">W2WUs9bX</th>
@@ -93,6 +100,9 @@
                       <td>10,684 lbs.</td>
                       <td>Home</td>
                       <td class="status">Delayed</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">y7usomxm</th>
@@ -102,6 +112,9 @@
                       <td>TBD</td>
                       <td>Home</td>
                       <td class="status">Loading Freight</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">9XtqYTmd</th>
@@ -111,6 +124,9 @@
                       <td>12,608 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">e3WRbxQo</th>
@@ -120,6 +136,9 @@
                       <td>5,530 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">oAmFibLy</th>
@@ -129,6 +148,9 @@
                       <td>18,871 lbs.</td>
                       <td>Business</td>
                       <td class="status">Delayed</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">5wHZUyic</th>
@@ -138,6 +160,9 @@
                       <td>11,840 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-info">Details</button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -170,11 +195,10 @@
 	        <input type="text" class="form-control" id="from" required="true">
 		  <input type="text" class="form-control" id="to" required="true">
 	    </div>
+
 	    <div class="form-group" id="type">
 		<label for="type"><strong>Type</strong></label>
 		<br>
-
-
 		<div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="typeOptions" id="home" value="home">
             <label class="form-check-label">Home</label>
@@ -189,15 +213,15 @@
             <label for="type"><strong>Truck Size</strong></label>
             <br>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="typeOptions" id="size1" value="home">
+            <input class="form-check-input" type="radio" name="typeTruck" id="size1" value="home">
             <label class="form-check-label">Small Truck</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="typeOptions" id="size2" value="business">
+            <input class="form-check-input" type="radio" name="typeTruck" id="size2" value="business">
             <label class="form-check-label">Medium Truck</label>
           </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="typeOptions" id="size3" value="business">
+              <input class="form-check-input" type="radio" name="typeTruck" id="size3" value="business">
               <label class="form-check-label">Large Truck</label>
             </div>
           </div>

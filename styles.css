@@ -5,3 +5,7 @@ h1 {
 .buttons {
     text-align:center;
 }
+
+#search {
+    width: 100%;
+}

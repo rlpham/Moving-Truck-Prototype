@@ -11,7 +11,6 @@ function refresh() {
             x[i].innerHTML = temp[i];
         }
     }, 3000);
-    
 }
 
 function add() {
@@ -50,7 +49,6 @@ function add() {
 function getDate() {
     var today = new Date();
     var date = 11+"/"+today.getDate()+"/"+today.getFullYear();
-        // today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     return date;
 }
 
