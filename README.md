@@ -17,4 +17,4 @@ Group 3 Implementation of a Moving Truck company.
 5. Run using `npm start`
 
 ## If failing to start application
-1. Go into zipped file and open index.html (CHROME ONLY)
+1. Go into zipped file and open `index.html` (CHROME ONLY)
