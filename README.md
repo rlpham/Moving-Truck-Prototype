@@ -6,6 +6,7 @@ Group 3 Implementation of a Moving Truck company.
 - ElectronJS [Info](http://www.electronjs.org/)
 - Bootstrap 4 (I think, if not then it's 3). 
 - JQuery
+- NodeJS
 
 ## Installation
 
