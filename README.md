@@ -15,3 +15,6 @@ Group 3 Implementation of a Moving Truck company.
 3. `cd` into project folder
 4. Run `npm install`
 5. Run using `npm start`
+
+## If failing to start application
+1. Go into zipped file and open index.html (CHROME ONLY)
