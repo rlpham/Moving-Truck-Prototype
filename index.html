@@ -7,21 +7,22 @@
   <body>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color:gray">
         <div class="row">
             <div class="col" id="main">
-                <h1>Active Shipments</h1>
+                <h1 style="color:white">Active Shipments</h1>
 		<div class="buttons">
 			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addShipmentModal">Add Shipment</button>
 			<button type="button" class="btn btn-info" onclick="refresh()">Refresh</button>
 		</div>
-              <div id="search">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              <div>
+                <input class="form-control" type="text" placeholder="Search By Shipment ID" aria-label="Search" onkeyup="search()" id="search">
               </div>
-                <table id="table" class="table table-dark">
+              <br>
+                <table id="table" class="table table-dark sortable">
                   <thead>
                     <tr>
-                      <th scope="col" onclick="sortTable(0)">Shipment ID</th>
+                      <th scope="col">Shipment ID</th>
                       <th scope="col">Date</th>
                       <th scope="col">From</th>
                       <th scope="col">To</th>
@@ -33,216 +34,252 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">j62Gxxn3</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">j62Gxxn3</td>
+                      <td>12/2/2019</td>
                       <td>Philadelphia, PA</td>
                       <td>Harrisburg, PA</td>
                       <td>TBD</td>
                       <td>Home</td>
                       <td class="status">Loading Freight</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">xZC2Z8hL</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">xZC2Z8hL</td>
+                      <td>12/2/2019</td>
                       <td>State College, PA</td>
                       <td>Columbus, OH</td>
                       <td>6,056 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">n2Nj6tCj</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">n2Nj6tCj</td>
+                      <td>12/2/2019</td>
                       <td>Las Vegas, NV</td>
                       <td>Los Angeles, CA</td>
                       <td>9,483 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">mkcDgp9g</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">mkcDgp9g</td>
+                      <td>12/2/2019</td>
                       <td>Louisville, KY</td>
                       <td>Nashville, TN</td>
                       <td>8,112 lbs.</td>
                       <td>Home</td>
                       <td class="status">Unloading Freight</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">36gVFRPE</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">36gVFRPE</td>
+                      <td>12/2/2019</td>
                       <td>Boston, MA</td>
                       <td>Salem, MA</td>
                       <td>TBD</td>
                       <td>Business</td>
                       <td class="status">Loading Freight</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">W2WUs9bX</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">W2WUs9bX</td>
+                      <td>12/2/2019</td>
                       <td>Seattle, WA</td>
                       <td>Sacramento, CA</td>
                       <td>10,684 lbs.</td>
                       <td>Home</td>
                       <td class="status">Delayed</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">y7usomxm</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">y7usomxm</td>
+                      <td>12/2/2019</td>
                       <td>Houston, TX</td>
                       <td>Dallas, TX</td>
                       <td>TBD</td>
                       <td>Home</td>
                       <td class="status">Loading Freight</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">9XtqYTmd</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">9XtqYTmd</td>
+                      <td>12/2/2019</td>
                       <td>Miami, FL</td>
                       <td>Orlando, FL</td>
                       <td>12,608 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">e3WRbxQo</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">e3WRbxQo</td>
+                      <td>12/2/2019</td>
                       <td>Salt Lake City, UT</td>
                       <td>San Antonio, TX</td>
                       <td>5,530 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">oAmFibLy</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">oAmFibLy</td>
+                      <td>12/5/2019</td>
                       <td>Des Moines, IW</td>
                       <td>Iowa City, IW</td>
                       <td>18,871 lbs.</td>
                       <td>Business</td>
                       <td class="status">Delayed</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                     <tr>
-                      <th scope="row">5wHZUyic</th>
-                      <td>11/6/2019</td>
+                      <td scope="row">5wHZUyic</td>
+                      <td>11/28/2019</td>
                       <td>Raleigh, NC</td>
                       <td>Greenville, NC</td>
                       <td>11,840 lbs.</td>
                       <td>Home</td>
                       <td class="status">In Transit</td>
                       <td>
-                        <button type="button" class="btn btn-outline-info">Details</button>
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewDetailsModal" onclick="openDetailModal()">Details</button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+              <label id="shipmentCountLabel" style="color:white"></label>
             </div>
         </div>
     </div>
 
-<!-- Modal -->
-<div class="modal fade" id="addShipmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create New Shipment</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="form-" action="/action_page.php" id="newModalForm">
-	        <label for="name"><strong>Name</strong></label>
-	    <div class="form-group">
-	        <input type="text" class="form-control" id="name" required="true">
-	    </div>
-          <label for="name"><strong>Email</strong></label>
-          <div class="form-group">
-            <input type="text" class="form-control" id="email" required="true">
+<!-- Start Add Modal -->
+    <div class="modal fade" id="addShipmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create New Shipment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-	    <div class="form-group">
-	        <label for="from"><strong>From/To</strong></label>
-	        <input type="text" class="form-control" id="from" required="true">
-		  <input type="text" class="form-control" id="to" required="true">
-	    </div>
-
-	    <div class="form-group" id="type">
-		<label for="type"><strong>Type</strong></label>
-		<br>
-		<div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="typeOptions" id="home" value="home">
-            <label class="form-check-label">Home</label>
-	    	</div>
-	    	<div class="form-check form-check-inline">
-		 	<input class="form-check-input" type="radio" name="typeOptions" id="business" value="business">
-		 	<label class="form-check-label">Business</label>
-	    	</div>
-	    </div>
-
-          <div class="form-group" id="truckType">
-            <label for="type"><strong>Truck Size</strong></label>
-            <br>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="typeTruck" id="size1" value="home">
-            <label class="form-check-label">Small Truck</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="typeTruck" id="size2" value="business">
-            <label class="form-check-label">Medium Truck</label>
-          </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="typeTruck" id="size3" value="business">
-              <label class="form-check-label">Large Truck</label>
+          <div class="modal-body">
+            <form class="form-" action="/action_page.php" id="newModalForm">
+                <label for="name"><strong>Name*</strong></label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" required="true" onkeyup="validateForm()">
             </div>
-          </div>
+              <label for="name"><strong>Phone Number*</strong></label>
+              <div class="form-group">
+                <input type="text" class="form-control" id="phone" required="true" onkeyup="validateForm()">
+              </div>
+              <label for="name"><strong>Email*</strong></label>
+              <div class="form-group">
+                <input type="text" class="form-control" id="email" required="true" onkeyup="validateForm()">
+              </div>
+            <div class="form-group">
+                <label for="from"><strong>From/To*</strong></label>
+                <input type="text" class="form-control" id="from" required="true" onkeyup="validateForm()">
+              <input type="text" class="form-control" id="to" required="true" onkeyup="validateForm()">
+            </div>
 
+            <div class="form-group" id="type">
+            <label for="type"><strong>Type*</strong></label>
+            <br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeOptions" id="home" value="home" onclick="validateForm()">
+                <label class="form-check-label">Home</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeOptions" id="business" value="business" onclick="validateForm()">
+                <label class="form-check-label">Business</label>
+                </div>
+            </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1"><strong>Special Requirements</strong></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <div class="form-group" id="truckType">
+                <label for="type"><strong>Truck Size*</strong></label>
+                <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeTruck" id="size1" value="home" onclick="validateForm()">
+                <label class="form-check-label">Small Truck</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeTruck" id="size2" value="business" onclick="validateForm()">
+                <label class="form-check-label">Medium Truck</label>
+              </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="typeTruck" id="size3" value="business" onclick="validateForm()">
+                  <label class="form-check-label">Large Truck</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1"><strong>Additional Information</strong></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+               </form>
+            <p align="right">*required fields</p>
           </div>
-           </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-dismiss="modal" onclick="clear()">Cancel</button>
-        <button type="submit" class="btn btn-success" data-dismiss="modal" onclick="add()">Add</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal" onclick="clear2()">Cancel</button>
+            <button type="submit" class="btn btn-success" data-dismiss="modal" onclick="add()" id="add" disabled>Add</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+<!-- End Add Modal -->
 
+<!-- Start Detail Modal -->
+    <div class="modal fade" id="viewDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aLabel">Shipment Details</h5>
+          </div>
+          <label for="name"><strong>Name:</strong></label>
+          <p id="modalName"></p>
+          <label for="name"><strong>Phone Number:</strong></label>
+          <p id="modalPhoneNum"></p>
+          <label for="name"><strong>Starting Address:</strong></label>
+          <p id="modalStartAddress"></p>
+          <label for="name"><strong>End Address:</strong></label>
+          <p id="modalEndAddress"></p>
+          <label for="name"><strong>Email Address:</strong></label>
+          <p id="modalEmail"></p>
+          <label for="name"><strong>Payment Status:</strong></label>
+          <p>PAID</p>
+          <p id="modalCC"></p>
+          <label for="name"><strong>Additional Info:</strong></label>
+          <p>Lorem ipsum dolor sit amet, elitr utinam vix in, tota falli sed eu. Dicta oratio fabulas cum eu, ut rebum impetus utroque mea. Nonumy sanctus assentior has cu,
+            falli oportere appellantur sea eu. Has causae perpetua ex. Ut graeco indoctum adolescens sit, graeco invenire vix ne. Audire debitis ex his, iisque deleniti sed ne.</p>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" data-dismiss="modal">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- End Detail Modal -->
 
     <!-- You can also require other files to run in this process -->
+    <script src="./sortable.js"></script>
     <script src="./renderer.js"></script>
     <script src="./refresh.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
