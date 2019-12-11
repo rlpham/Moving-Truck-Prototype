@@ -1,6 +1,7 @@
 # Moving Truck Prototype
 
 Group 3's implementation of a program that tracks moving shipment trucks.
+Team Members: Rahul Datta, Hoang Pham, Ryan Pham, Dale Reyes, Quang/Kenny "Big Man" Tran
 
 ## Technology Stock
 - ElectronJS (Infrastructure)
