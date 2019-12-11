@@ -1,5 +1,15 @@
 # Moving Truck Prototype
 
-# How to run 
-1. Download repo
-2. open index.html in `google chrome`
+Group 3's implementation of a program that tracks moving shipment trucks.
+
+## Technology Stock
+ElectronJS
+Bootstrap
+Axios
+AWS
+
+## How to run 
+1. Download zip
+2. Extrap zip into desktop
+3. `cd` into desktop and folder
+4. run `npm install` then run ``npm run`
