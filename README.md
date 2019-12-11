@@ -9,7 +9,7 @@ Group 3's implementation of a program that tracks moving shipment trucks.
 - AWS (DB)
 
 ## How to run 
-1. Download zip
-2. Extrap zip into desktop
+1. Download/clone repo (zip)
+2. Extract zip file
 3. `cd` into desktop and folder
 4. run `npm install` then run `npm run`
