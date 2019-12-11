@@ -3,10 +3,10 @@
 Group 3's implementation of a program that tracks moving shipment trucks.
 
 ## Technology Stock
-- ElectronJS
-- Bootstrap
-- Axios
-- AWS
+- ElectronJS (Infrastructure)
+- Bootstrap (Design)
+- Axios (HTTP Requests)
+- AWS (DB)
 
 ## How to run 
 1. Download zip
